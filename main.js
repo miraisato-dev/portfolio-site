@@ -174,3 +174,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
     init();
 });
+
+
+
+
+
+/* =========================
+    波紋クリックアニメーション
+  ========================= */
+$(function () {
+    $('.ripple').on('mousedown', function (e) {
+
+        const $el = $(this);
+        const $effect = $el.find('.ripple__effect');
+
+        const rect = this.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        $effect.css({
+            left: x - 60 + 'px',
+            top: y - 60 + 'px'
+        });
+
+        $effect.removeClass('is-show'); // 再発火用
+        void $effect[0].offsetWidth; // reflow hack
+
+        $effect.addClass('is-show');
+    });
+})
+
+// experience__nav用の押されたらボーダーが光る
+$('.experience__nav li').on('click', function () {
+    $('.experience__nav li').removeClass('active');
+    $(this).addClass('active');
+});
+
+// experinece__content 会社名押したら経験が切り替わる
+$('.tab').on('click', function () {
+
+    console.log("tab js loaded");
+    console.log($('.tab').length);
+
+    // ① タブのactive切り替え
+    $('.tab').removeClass('active');
+    $(this).addClass('active');
+
+    // ② 対応するcontent取得
+    const target = $(this).data('target');
+
+    // ③ コンテンツ切り替え
+    $('.panel').removeClass('active');
+    $('#' + target).addClass('active');
+});

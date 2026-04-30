@@ -529,8 +529,20 @@ path.two {
 }
 
 
+
+@media screen {}
+
 /* =========================
-    Main
+    Header End
+  ========================= */
+
+
+
+
+
+
+/* =========================
+    Main Start
   ========================= */
 
 .main {
@@ -564,8 +576,6 @@ path.two {
     /* 見出しの下の線の設定 */
     border-bottom: 1px solid var(--lightest-navy);
     padding-bottom: var(--space-2);
-    margin-bottom: var(--space-6);
-    width: 100%;
 }
 
 .section__title {
@@ -576,9 +586,10 @@ path.two {
     padding: 0;
 }
 
-/* コンテンツエリアを横いっぱいに広げる */
 .section__content {
+    margin-top: var(--space-8);
     display: flex;
+    min-height: 400px;
     justify-content: center;
 }
 
@@ -596,17 +607,11 @@ path.two {
 .about__content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .about__image-container {
-    width: 480px;
-    /* 画像と同じサイズ */
-    height: 480px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+    margin: auto;
 }
 
 .about__text {
@@ -633,7 +638,119 @@ path.two {
 }
 
 /* =========================
-    Project Section
+    Experience Section Start
+  ========================= */
+
+.experience__nav-container {
+    border-right: 1px solid var(--lightest-navy);
+    flex: 1;
+}
+
+.experience__nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.experience__nav-container ul li {
+    display: block;
+    padding: 12px 0 12px 20px;
+    border: 1px solid transparent;
+    /* margin-bottom: 10px; */
+    cursor: pointer;
+}
+
+.experience__nav li:hover {
+    background: var(--green-tint)
+}
+
+.experience__content {
+    flex: 10;
+}
+
+/* 左の光るライン */
+.experience__nav li.active::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--green-bright);
+    box-shadow: 0 0 10px var(--green-bright);
+}
+
+/* 選択状態 */
+.experience__nav li.active {
+    color: var(--green-bright);
+}
+
+
+/* ===== 波紋クリックアニメーション Start ======== */
+
+/* クリックできる要素 */
+.ripple {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    padding: 12px 20px;
+    list-style: none;
+}
+
+.ripple__effect {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+
+    width: 120px;
+    height: 120px;
+
+    transform: scale(0);
+    opacity: 0;
+}
+
+.ripple__effect.is-show {
+    animation: ripple 0.6s ease-out;
+}
+
+/* エフェクト要素の色を指定 */
+.ripple__effect.is-green {
+    background: var(--green-bright);
+}
+
+/* アニメーションの定義 */
+@keyframes ripple {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* ===== 波紋クリックアニメーション END ======== */
+
+/* ===== experience__content START ========= */
+.panel {
+    display: none;
+}
+
+.panel.active {
+    display: block;
+}
+
+.tab.active {
+    color: var(--green-bright);
+}
+
+/* ===== experience__content END ========= */
+
+
+/* =========================
+    Project Section Start
   ========================= */
 /*  */
 .projects__view-all {
