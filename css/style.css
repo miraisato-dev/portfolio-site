@@ -549,6 +549,10 @@ path.two {
 
 .section__inner {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
 }
 
 .section__header {
@@ -572,14 +576,10 @@ path.two {
     padding: 0;
 }
 
-.section__inner {
-    display: flex;
-}
-
 /* コンテンツエリアを横いっぱいに広げる */
 .section__content {
-    flex: 1;
-    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .section img {
@@ -589,14 +589,13 @@ path.two {
     object-fit: cover;
 }
 
-
-
 /* =========================
     About Section
   ========================= */
 
 .about__content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -607,6 +606,7 @@ path.two {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1;
 }
 
 .about__text {
