@@ -378,6 +378,11 @@ footer {
     letter-spacing: var(--space-05, 0.05em);
 }
 
+.logo:hover {
+    /* transform: scale(1.01); */
+    text-shadow: 0 0 8px var(--green-bright);
+}
+
 
 /* =========================
         Hero Section
@@ -561,11 +566,16 @@ path.two {
 }
 
 .section__inner {
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    margin-top: var(--space-16);
+}
+
+#about .section__inner {
+    margin-top: 0;
 }
 
 .section__header {
@@ -590,7 +600,7 @@ path.two {
 /* flexをかけて横並びにしたいセクション限定  */
 .section__content {
     margin-top: var(--space-8);
-    min-height: 400px;
+    min-height: auto;
 }
 
 /* flexをかけて横並びにしたいセクション限定で追加 aboutとexperience  */
@@ -609,6 +619,10 @@ path.two {
 /* =========================
     About Section
   ========================= */
+
+.section--about .section__inner {
+    justify-content: flex-start;
+}
 
 .about__content {
     display: flex;
@@ -1006,7 +1020,7 @@ path.two {
 
 /* プロジェクトカード一覧START */
 .projects__list {
-    margin-top: var(--space-4);
+    margin-top: var(--space-8);
     display: grid;
     gap: 16px;
     grid-template-columns: 1fr 1fr 1fr;
