@@ -14,13 +14,10 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;400;500;700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Slick用CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <!-- スライド用CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- Slick用JS JQueryに依存(後に読み込む) -->
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
 </head>
 
 <body>
@@ -141,7 +138,7 @@
                         <h2 class="section__title">about Me</h2>
                     </div>
 
-                    <div class="section__content section__content--row">
+                    <div class="section__content">
                         <div class="about__content">
                             <p class="about__description">
                                 I am currently on the jobtraining program, studying at Human Academy in Fukuoka,
@@ -176,7 +173,7 @@
                         <h2 class="section__title">Experience</h2>
                     </div>
 
-                    <div class="section__content section__content--row">
+                    <div class="section__content">
 
                         <div class="experience__nav-container">
                             <nav class="experience__nav">
@@ -211,96 +208,121 @@
                         <p class="projects__view-all">
                             <a href="https://github.com/miraisato-dev">View all projects →</a>
                         </p>
-                    </div>
+                    </div><!-- 3つの画像のスライド開始 -->
 
                     <div class="section__content">
+                        <!-- プロジェクトスライド -->
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
 
-                        <!-- プロジェクトスライド START -->
-                        <div class="projects__slider">
-                            <div class="projects__slider-area">
-                                <div class="projects__slide">
-                                    <div class="slide-item"><img src="images/project_1.png" alt="Project 1"></div>
-                                    <div class="slide-item"><img src="images/project_2.png" alt="Project 2"></div>
-                                    <div class="slide-item"><img src="images/project_3.png" alt="Project 3"></div>
+                                    <!-- オーバーレイ1 -->
+                                    <div class="project">
+                                        <img class="project__image" src="images/project_1.png" alt="アイテム管理サイト">
+                                        <div class="project__overlay">
+                                            <div class="project__content">
+                                                <h3 class="project__title">Project 1</h3>
+                                                <p class="project__description">AAAAAAAAAAAAAAAAA</p>
+
+                                                <!-- GitHubアイコン -->
+                                                <a href="https://github.com/miraisato-dev" aria-label="GitHub profile"
+                                                    class="project__icon project__icon--github">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                        roll="img" width="24" height="24" fill="currentColor">
+                                                        <!-- !Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc. -->
+                                                        <path
+                                                            d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 
+                                                            .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM252.8 8c-138.7 0-244.8 105.3-244.8 244 0 110.9 69.8 205.8 169.5 239.2 
+                                                            12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 
+                                                            16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 
+                                                            34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1 100-33.2 167.8-128.1 167.8-239 
+                                                            0-138.7-112.5-244-251.2-244zM105.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 
+                                                            .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <!-- オーバーレイ2 -->
+                                    <div class="project">
+                                        <img class="project__image" src="images/project_2.png" alt="福岡観光サイト">
+                                        <div class="project__overlay">
+                                            <div class="project__content">
+                                                <h3 class="project__title">Project 2</h3>
+                                                <p class="project__description">BBBBBBBBBBBB</p>
+
+                                                <!-- GitHubアイコン -->
+                                                <a href="https://github.com/miraisato-dev" aria-label="GitHub profile"
+                                                    class="project__icon project__icon--github">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                        roll="img" width="24" height="24" fill="currentColor">
+                                                        <!-- !Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc. -->
+                                                        <path
+                                                            d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 
+                                                                .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM252.8 8c-138.7 0-244.8 105.3-244.8 244 0 110.9 69.8 205.8 169.5 239.2 
+                                                                12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 
+                                                                16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 
+                                                                34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1 100-33.2 167.8-128.1 167.8-239 
+                                                                0-138.7-112.5-244-251.2-244zM105.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 
+                                                                .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <!-- オーバーレイ3 -->
+                                    <div class="project">
+                                        <img class="project__image" src="images/project_3.png" alt="美容院予約管理システム">
+
+                                        <div class="project__overlay">
+                                            <div class="project__content">
+                                                <h3 class="project__title">Project 3</h3>
+                                                <p class="project__description">CCCCCCCCCCCCCCC</p>
+
+                                                <!-- GitHubアイコン -->
+                                                <a href="https://github.com/miraisato-dev" aria-label="GitHub profile"
+                                                    class="project__icon project__icon--github">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                        roll="img" width="24" height="24" fill="currentColor">
+                                                        <!-- !Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc. -->
+                                                        <path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 
+                                                                2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 
+                                                                3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM252.8 8c-138.7 0-244.8 105.3-244.8 244 0 110.9 69.8 205.8 
+                                                                169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 
+                                                                1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 
+                                                                7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 
+                                                                69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 
+                                                                75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1 100-33.2 167.8-128.1 167.8-239 0-138.7-112.5-244-251.2-244zM105.2 352.9c-1.3 1-1 3.3 
+                                                                .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 
+                                                                .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 
+                                                                1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
+                            <!-- ナビ -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+
+                            <!-- 下のバー -->
+                            <div class="swiper-pagination"></div>
                         </div>
-                        <!-- プロジェクトスライド END -->
-
-                        <!-- プロジェクトカード一覧 START -->
-                        <div class="projects__list">
-
-                            <!-- 右側カードSTART -->
-                            <div class="project-card">
-                                <div class="project-card__header">
-
-                                    <div class="project-card__icons">
-                                        <span class="project-card__icon project-card__icon--folder"></span>
-
-                                        <div class="project-card__links">
-                                            <span class="project-card__icon project-card__icon--github"></span>
-                                            <span class="project-card__icon project-card__icon--external"></span>
-                                        </div>
-                                    </div>
-
-                                    <h3 class="project-card__title">プロジェクト名</h3>
-                                    <p class="project-card__description">説明文</p>
-                                    <p class="project-card__skills">HTML / CSS / JS</p>
-                                </div>
-                            </div>
-                            <!-- 右側カードEND -->
-
-                            <!-- 真ん中カードSTART -->
-                            <div class="project-card">
-                                <div class="project-card__header">
-
-                                    <div class="project-card__icons">
-                                        <span class="project-card__icon project-card__icon--folder"></span>
-
-                                        <div class="project-card__links">
-                                            <a href="#" class="project-card__icon project-card__icon--github"
-                                                aria-label="GitHubを見る"></a>
-                                            <a href="#" class="project-card__icon project-card__icon--external"
-                                                aria-label="サイトを見る"></a>
-                                        </div>
-                                    </div>
-
-                                    <h3 class="project-card__title">プロジェクト名</h3>
-                                    <p class="project-card__description">説明文</p>
-                                    <p class="project-card__skills">HTML / CSS / JS</p>
-                                </div>
-                            </div>
-                            <!-- 真ん中カードEND -->
-
-                            <!-- 左側カードSTART -->
-                            <div class="project-card">
-                                <div class="project-card__header">
-
-                                    <div class="project-card__icons">
-                                        <span class="project-card__icon project-card__icon--folder"></span>
-
-                                        <div class="project-card__links">
-                                            <span class="project-card__icon project-card__icon--github"></span>
-                                            <span class="project-card__icon project-card__icon--external"></span>
-                                        </div>
-                                    </div>
-
-                                    <h3 class="project-card__title">プロジェクト名</h3>
-                                    <p class="project-card__description">説明文</p>
-                                    <p class="project-card__skills">HTML / CSS / JS</p>
-                                </div>
-                            </div>
-                            <!-- 左側カードEND -->
-
-                        </div>
-                        <!-- プロジェクトカード一覧 END -->
 
                     </div>
-                </div>
             </section>
 
             <!-- 3つの画像のスライド終了 -->
-        </div>
+        </div class="section__inner">
         </div>
     </main>
 

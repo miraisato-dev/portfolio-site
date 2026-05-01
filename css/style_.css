@@ -396,13 +396,9 @@ footer {
 }
 
 #canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: 0;
-    display: block;
     object-fit: cover;
 }
 
@@ -586,19 +582,14 @@ path.two {
     padding: 0;
 }
 
-/* flexをかけて横並びにしたいセクション限定  */
 .section__content {
     margin-top: var(--space-8);
-    min-height: 400px;
-}
-
-/* flexをかけて横並びにしたいセクション限定で追加 aboutとexperience  */
-.section__content--row {
     display: flex;
+    min-height: 400px;
     justify-content: center;
 }
 
-.about__image {
+.section img {
     width: 300px;
     height: auto;
     border-radius: 50%;
@@ -780,187 +771,112 @@ path.two {
 
 
 
-/* 画像切り替えスライド START */
-.projects__slider-area {
-    max-width: 100%;
-    margin: 0 auto;
-}
+/* 画像切り替えスライド */
 
-.projects__slider-area.w300 {
-    max-width: 300px;
-}
-
-.slick-slide {
-    margin: 0 5px;
-}
-
-.slick-slide img {
+.swiper {
     width: 100%;
-    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: 500px;
     border-radius: var(--radius-xl);
-}
-
-
-/* ======== 画像に少しカバーSTART ========== */
-/* 画像単位にやるのがよし */
-.slide-item {
-    position: relative;
     overflow: hidden;
+    background-color: #fff;
+}
+
+.swiper-slide {
+    position: relative;
     border-radius: 12px;
+    overflow: hidden;
 }
 
-.slide-item img {
-    width: 100%;
-    display: block;
-}
-
-/* 暗くするレイヤー */
-.slide-item::after {
+/* .swiper-slide::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    transition: 0.3s;
+} */
+
+.swiper-slide:hover img {
+    filter: brightness(0.85) saturate(1);
+    transform: scale(1.03);
 }
 
-/* hoverでちょい明るく */
-.slide-item:hover::after {
-    background: rgba(0, 0, 0, 0.3);
-}
-
-/* ========= 画像のカバーEND =========== */
-
-
-
-
-/* ======= < > START ========== */
-
-.slick-prev,
-.slick-next {
-    font-size: 0;
-    /* デフォルトの文字をなくす */
-    width: 40px;
-    height: 40px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+/* 画像の上に重ねる */
+.project-overlay {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    /* 滑らかに大きくなる */
-    transition: transform 0.3s ease;
-}
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-.slick-prev {
-    left: 50px;
-}
+    padding: 16px 20px;
 
-.slick-next {
-    right: 50px;
-}
-
-/* 矢印作る */
-.slick-prev::before,
-.slick-next::before {
-    content: "";
-    display: block;
-    width: 15px;
-    height: 15px;
-    /* ⬜︎を作る 右と上だけ */
-    border-top: 2px solid var(--lightest-slate);
-    border-right: 2px solid var(--lightest-slate);
-    margin: auto;
-}
-
-.slick-prev::before {
-    /* ⬜︎ -->🔶 */
-    transform: rotate(-135deg);
-}
-
-.slick-next::before {
-    /* ⬜︎ -->🔶 */
-    transform: rotate(45deg);
-}
-
-/* hoverで大きくなる */
-.slick-next:hover,
-.slick-prev:hover {
-    transform: scale(1.1) translateY(-50%);
-}
-
-/* ＞は擬似クラスで作ったしかもボーダーなので文字ではないことに注意すること */
-.slick-next:hover::before,
-.slick-prev:hover::before {
-    border-color: var(--white);
-}
-
-/* ========= < > END=========*/
-
-/* ==== 下のバーSTART ======== */
-.slick-dots {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 20px;
+    align-items: center;
+
+    color: white;
 }
 
-.slick-dots li {
-    list-style: none;
-    /* クリックできる範囲を広げる */
-    padding: 8px 4px;
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    filter: brightness(0.55) saturate(0.9);
+    transition: filter 0.6s ease, transform 0.6s ease;
 }
 
-.slick-dots li button {
-    font-size: 0;
-    /* デフォルトの数字消す */
-    width: 36px;
+/* <と>に色＋大きさ設定 */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    color: var(--lightest-slate);
+    font-size: var(--font-2xl);
+    padding: var(--space-4);
+}
+
+/* 擬似クラスにホバーは効かないので親にかける */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: var(--color-green-blight);
+}
+
+/* <を内側に(右に)寄せる */
+.swiper-button-prev {
+    left: 30px;
+}
+
+/* >を内側に(左に)寄せる */
+.swiper-button-next {
+    right: 40px;
+}
+
+.swiper-slide:hover .project-overlay {
+    opacity: 1;
+}
+
+/* Slideのどこにいるかのバー */
+/* pagination全体 */
+.swiper-pagination {
+    position: relative;
+    margin-top: var(--space-10);
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* 現在表示されていない画像のバー */
+.swiper-pagination-bullet {
+    width: 40px;
     height: 4px;
-    border-radius: var(--radius-xs);
-    border: none;
-    cursor: pointer;
-}
-
-.slick-dots li.slick-active button {
-    background: #64ffda;
-}
-
-.slick-dots li button {
+    border-radius: 2px;
+    background: var(--lightest-slate);
+    opacity: 0.3;
     transition: all 0.3s ease;
 }
 
-.slick-dots li button:hover {
-    transform: scale(1.1);
-}
-
-/* ==== 下のバーEND ======  */
-
-
-
-
-.slick-slide {
-    transition: all ease-in-out .3s;
-    opacity: .2;
-}
-
-.slick-active {
+/* 現在表示されている画像のバー */
+.swiper-pagination-bullet-active {
     opacity: 1;
-}
-
-.slick-current {
-    opacity: 1;
-}
-
-.thumb {
-    margin: 20px 0 0;
-}
-
-.thumb .slick-slide {
-    cursor: pointer;
-}
-
-.thumb .slick-slide:hover {
-    opacity: .7;
+    background: var(--green-bright);
 }
 
 .github-link {
@@ -972,13 +888,19 @@ path.two {
     transform: scale(1.2);
 }
 
-/* 画像切り替えスライド END */
 
 
 
 
-/* プロジェクトカード一覧START */
-.projects__list {
+
+
+
+
+
+
+
+/* プロジェクトカード並べる */
+.grid {
     margin-top: var(--space-16);
     display: grid;
     gap: 10px;
@@ -1027,7 +949,6 @@ path.two {
     /* 縦方向中央 */
     align-items: center;
     /* 横方向中央 */
-    margin-top: var(--space-10);
 }
 
 .footer__content {

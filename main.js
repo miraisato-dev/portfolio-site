@@ -10,29 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
         loop: false,
     });
 
-    // 画像切り替えスライド
-    // 本番復活 実装時邪魔なので
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        // 切り替わる時の速さ
-        speed: 1800,
-        autoplay: {
-            // 切り替わるまでの速さ
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
 
-        // 下の丸
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+    // Slick
+    $(function () {
+        $(".projects__slide").slick({
+            autoplay: true,
+            autoplaySpeed: 4000,
+            dots: true,
+        });
     });
-
 
     // // パーティクルエフェクト
     const canvas = document.getElementById("canvas");
