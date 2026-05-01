@@ -275,7 +275,7 @@ h1 {
 }
 
 h3 {
-    font-size: var(--font-lg);
+    font-size: var(--font-2xl);
     font-weight: var(--font-light, 300);
     /* margin: 0; */
 }
@@ -775,43 +775,18 @@ path.two {
 }
 
 
-
-
-
-
-
-/* 画像切り替えスライド START */
-.projects__slider-area {
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.projects__slider-area.w300 {
-    max-width: 300px;
-}
-
-.slick-slide {
-    margin: 0 5px;
-}
-
-.slick-slide img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-xl);
-}
-
-
 /* ======== 画像に少しカバーSTART ========== */
 /* 画像単位にやるのがよし */
 .slide-item {
     position: relative;
+    /* project-slide__contentを画像の上にabsoluteで載せるため */
     overflow: hidden;
     border-radius: 12px;
 }
 
 .slide-item img {
     width: 100%;
-    display: block;
+    /* display: block; */
 }
 
 /* 暗くするレイヤー */
@@ -819,7 +794,7 @@ path.two {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
     transition: 0.3s;
 }
 
@@ -902,7 +877,6 @@ path.two {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 20px;
 }
 
 .slick-dots li {
@@ -916,7 +890,6 @@ path.two {
     /* デフォルトの数字消す */
     width: 36px;
     height: 4px;
-    border-radius: var(--radius-xs);
     border: none;
     cursor: pointer;
 }
@@ -936,11 +909,64 @@ path.two {
 /* ==== 下のバーEND ======  */
 
 
+/* 画像の上に文字のせるSTART */
 
+.project-slide__content {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+}
+
+.project-slide__content,
+.project-slide__description,
+.project-slide__skills,
+.project-slide__links {
+    color: white;
+}
+
+.project-slide__description,
+.project-slide__skills {
+    font-size: var(--font-xs);
+}
+
+
+/* 画像の上に文字のせるEND */
+
+
+
+/* 画像切り替えスライド START */
+
+.slick-list {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.projects__slider-area {
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto;
+}
+
+.projects__slider-area.w300 {
+    max-width: 300px;
+}
 
 .slick-slide {
+    margin: 0 5px;
+    aspect-ratio: 9 / 4;
+    /* スライドに比率だけ指定して画像をフィットさせる */
     transition: all ease-in-out .3s;
     opacity: .2;
+}
+
+.slick-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* スライドに比率だけ指定して画像をフィットさせる */
 }
 
 .slick-active {
@@ -979,9 +1005,9 @@ path.two {
 
 /* プロジェクトカード一覧START */
 .projects__list {
-    margin-top: var(--space-16);
+    margin-top: var(--space-4);
     display: grid;
-    gap: 10px;
+    gap: 16px;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -989,7 +1015,18 @@ path.two {
     width: 100%;
     aspect-ratio: 6/7;
     border-radius: var(--radius-lg);
-    background-color: red;
+    background-color: var(--light-navy);
+    padding: 28px;
+}
+
+.project-card__icons {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.project-card__description {
+    padding-bottom: 40px;
 }
 
 .project-card__image img {
@@ -997,6 +1034,10 @@ path.two {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.project-card__skills {
+    font-size: var(--font-xs);
 }
 
 @media (max-width : 400px) {
@@ -1054,4 +1095,33 @@ footer small {
 footer p,
 footer small {
     margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================
+        ふわっとアニメーション
+================== */
+
+/* 最初は見えない */
+.fadeanimation {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* 表示されたらふわっと */
+.fadeanimation.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }

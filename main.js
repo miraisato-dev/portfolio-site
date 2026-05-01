@@ -1,4 +1,4 @@
-
+// main.js
 document.addEventListener("DOMContentLoaded", () => {
     // タイピングエフェクト
     new Typed('#typed', {
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // Slick
+    // Slick START
     $(function () {
         $(".projects__slide").slick({
             autoplay: true,
@@ -19,8 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
             dots: true,
         });
     });
+    // Slick END
 
-    // // パーティクルエフェクト
+    // // パーティクルエフェクトSTART
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
 
@@ -160,6 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     init();
 });
+// パーティクルエフェクトEND
 
 
 
@@ -203,14 +205,50 @@ $('.tab').on('click', function () {
     console.log("tab js loaded");
     console.log($('.tab').length);
 
-    // ① タブのactive切り替え
+    // 1 タブのactive切り替え
     $('.tab').removeClass('active');
     $(this).addClass('active');
 
-    // ② 対応するcontent取得
+    // 2 対応するcontent取得
     const target = $(this).data('target');
 
-    // ③ コンテンツ切り替え
+    // 3 コンテンツ切り替え
     $('.panel').removeClass('active');
     $('#' + target).addClass('active');
+});
+
+
+
+
+
+
+
+
+// ふわっとでるアニメーション
+document.addEventListener("DOMContentLoaded", function () {
+
+    // 1 main内の全要素に fadeanimation をつける
+    // ▼ heroと波紋アニメーションとスライドの上の文字を除外
+    document.querySelectorAll("main *:not(.hero):not(.hero *):not(.ripple):not(.ripple *):not(.project-slide__content *)")
+        .forEach(el => {
+            el.classList.add("fadeanimation");
+        });
+
+    // 2 スクロール検知
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null,
+        rootMargin: "0px 0px -100px 0px",
+        threshold: 0
+    });
+
+    // 3 監視開始
+    document.querySelectorAll(".fadeanimation")
+        .forEach(el => observer.observe(el));
 });
