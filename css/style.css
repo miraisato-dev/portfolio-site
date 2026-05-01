@@ -240,7 +240,8 @@ html {
 
 /* 全体の基本フォント（読みやすさ重視） */
 body {
-    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    /* font-family: 'Inter', 'Noto Sans JP', sans-serif; */
+    font-family: "Roboto", 'Noto Sans JP', sans-serif;
 }
 
 /* タイトルやロゴ（カッコよさ重視） */
