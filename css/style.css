@@ -639,13 +639,12 @@ footer {
     /* hero画像と自己紹介並ばせ justify-content: center; */
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     gap: var(--space-10, 2.5rem);
     overflow: hidden;
     /* hero画像と自己紹介の要素間隔 */
 
-    min-height: 100vh;
-    padding-top: 80px;
+    min-height: calc(100vh - 80px);
+    padding-top: 50px;
     /* navの高さ分 */
 }
 
