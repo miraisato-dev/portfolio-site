@@ -3,29 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Mirai</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Slick用CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- Slick用JS JQueryに依存(後に読み込む) -->
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@300;400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Slick CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 </head>
+
 
 <body>
     <header id="home">
         <nav class="nav">
+
             <div class="nav__primary">
                 <a href="#home" class="logo">Mirai Sato</a>
                 <ul>
@@ -63,6 +65,13 @@
                 </a>
             </div>
         </nav>
+
+        <!-- ハンバーガー -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
         <section id="hero" class="section section--home">
             <div class="hero__image">
@@ -344,11 +353,21 @@
             <p><small> All rights reserved. &copy; </small></p>
         </div>
     </footer>
+
     <!-- Typed.js タイピングエフェクト -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <!-- tsParticles マウス粒々アニメーション -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
-    <script src="main.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Slick -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- 自作JS -->
+    <script src="main.js" defer></script>
+</body>
 </body>
 
 </html>

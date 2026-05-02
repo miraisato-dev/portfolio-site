@@ -11,6 +11,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+
+
+
+
+
+
+
+    // Hamburger
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.querySelector(".nav__primary ul");
+
+    hamburger.addEventListener("click", () => {
+        menu.classList.toggle("active");
+        hamburger.classList.toggle("active");
+    });
+
+
+
+
+
+
+
+
+
     // Slick START
     $(function () {
         $(".projects__slide").slick({
