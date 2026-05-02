@@ -270,8 +270,6 @@ a,
 h1 {
     font-size: var(--font-6xl, 3.75rem);
     font-weight: var(--font-light, 300);
-    margin: 0;
-    margin: var(--space-4, 1rem) auto;
     letter-spacing: var(--space-02, 0.02em);
 }
 
@@ -290,6 +288,10 @@ p,
 .about__skills,
 footer {
     color: var(--slate);
+}
+
+.section {
+    margin-top: var(--space-10);
 }
 
 
@@ -389,6 +391,243 @@ footer {
 
 
 
+
+/* header（デモの参考値） */
+.demobox-header {
+    background: #020c1b;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 1em;
+}
+
+.demobox-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.demobox-sitename {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.demobox-sitename {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+}
+
+.demobox-sitename {
+    font-size: var(--font-2xl, 1.5rem);
+    font-weight: var(--font-bold, 700);
+    color: var(--green-bright);
+    letter-spacing: var(--space-05, 0.05em);
+}
+
+.demobox-sitename:hover {
+    /* transform: scale(1.01); */
+    text-shadow: 0 0 8px var(--green-bright);
+}
+
+/* 全体調整CSS */
+.nav--mobile * {
+    font-size: 16px;
+}
+
+.nav--mobile li {
+    font-size: 14px;
+    text-transform: capitalize;
+
+}
+
+/* hamburgerここから */
+/* input非表示 */
+.nav__toggle {
+    display: none;
+}
+
+/* label */
+.nav__hamburger {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 9999;
+    width: 4em;
+    height: 4em;
+}
+
+/* メニュー展開時のlabelをfixed化 */
+#menu-toggle:checked~.nav__hamburger {
+    position: fixed;
+}
+
+/* メニューエリア */
+.nav__menu--mobile {
+    position: fixed;
+    height: 100%;
+    background: #020c1b;
+    /* メニューエリアの背景色 */
+    padding: 5em 3% 2em;
+    z-index: 9998;
+    transition: .3s;
+    overflow-y: scroll;
+    /* メニュー項目が多い場合に縦スクロール */
+    top: 0;
+    left: 100%;
+    width: 70%;
+}
+
+/* メニューリスト */
+.nav__list--mobile {
+    margin-right: 3%;
+    padding-left: 5% !important;
+    /* !importantは不要な場合あり */
+    list-style: none;
+}
+
+.nav__list--mobile li a {
+    text-decoration: none;
+    color: #ccd6f6;
+    /* メニューリスト項目の文字色 */
+    display: block;
+}
+
+/* メニューエリアchecked */
+/* 右から */
+#menu-toggle:checked~.nav__menu--mobile {
+    left: 30%;
+}
+
+/* コンテンツカバー */
+#menu-toggle:checked~.nav--mobile-cover {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9997;
+    background: rgba(3, 3, 3, .5);
+    display: block;
+}
+
+/* ハーフセパレート･デザイン */
+/* ハンバーガーアイコン */
+.hamburger-switch-half,
+.nav__hamburger8:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s;
+    content: "";
+}
+
+.nav__hamburger8:before {
+    width: 25px;
+    height: 3px;
+    background: #ccd6f6;
+    /* ハンバーガー中央線の色 */
+}
+
+.hamburger-switch-half:before,
+.hamburger-switch-half:after {
+    content: "";
+    position: absolute;
+    width: 12.5px;
+    height: 3px;
+    background: #ccd6f6;
+    /* ハンバーガー上下線の色 */
+    top: 50%;
+    left: 50%;
+    transition: .3s;
+}
+
+.hamburger-switch-half:before {
+    transform: translate(-100%, -300%);
+}
+
+.hamburger-switch-half:after {
+    transform: translate(0, 200%)
+}
+
+/* アイコンアニメーション */
+#menu-toggle:checked~.nav__hamburger .hamburger-switch-half:before {
+    transform: translate(-85%, -200%) rotate(45deg);
+}
+
+#menu-toggle:checked~.nav__hamburger .hamburger-switch-half:after {
+    transform: translate(-15%, 100%) rotate(45deg);
+}
+
+#menu-toggle:checked~.nav__hamburger8:before {
+    transform: rotate(-45deg) translate(-32%, -335%);
+}
+
+/* メニューリストのセパレートボーダー */
+.hamburger-menulist-half li {
+    position: relative;
+    margin-bottom: .5em;
+}
+
+.hamburger-menulist-half a {
+    padding: 0.5em 1em;
+}
+
+.hamburger-menulist-half a:hover {
+    color: var(--green-bright);
+}
+
+.hamburger-menulist-half a:before,
+.hamburger-menulist-half a:after {
+    position: absolute;
+    content: "";
+    width: 2em;
+    height: 1em;
+    border: 1px solid;
+    z-index: -1;
+}
+
+.hamburger-menulist-half a:before {
+    border-color: #333 transparent transparent #333;
+    /* カギ括弧の色（#333のみ変更） */
+    top: 0;
+    left: 0;
+}
+
+.hamburger-menulist-half a:after {
+    border-color: transparent #333 #333 transparent;
+    /* カギ括弧の色（#333のみ変更） */
+    bottom: 0;
+    /* right: 0; */
+    right: 1.5em;
+}
+
+/* PCではハンバーガーメニューを表示しない */
+@media (min-width: 992px) {
+    .demobox-header {
+        display: none;
+    }
+}
+
+@media (max-width:992px) {
+    .nav {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 /* =========================
         Hero Section
   ========================= */
@@ -404,6 +643,10 @@ footer {
     gap: var(--space-10, 2.5rem);
     overflow: hidden;
     /* hero画像と自己紹介の要素間隔 */
+
+    min-height: 100vh;
+    padding-top: 80px;
+    /* navの高さ分 */
 }
 
 #canvas {
@@ -427,6 +670,10 @@ footer {
     /* カーソルの色をMiraiの文字色に合わせ */
     margin-left: 5px;
     /* 文字との隙間を少し空ける */
+}
+
+.hero__title {
+    height: fit-content;
 }
 
 /* タイピングされるMiraiの文字 */
@@ -566,20 +813,12 @@ path.two {
     padding: 0 var(--space-5);
 }
 
-.section {
-    margin-top: var(--space-16);
-}
-
 .section__inner {
     min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
-}
-
-#about .section__inner {
-    margin-top: 0;
 }
 
 .section__header {
@@ -666,7 +905,9 @@ path.two {
   ========================= */
 
 .experience__nav-container {
-    height: 80vh;
+    /* min-height: 300px; */
+    /* 悩み中 */
+    height: auto;
     border-right: 1px solid var(--lightest-navy);
     flex: 1;
 }
@@ -1147,6 +1388,24 @@ footer small {
 @media (max-width: 768px) {
 
     .wrapper {
+        padding: 0 var(--space-8);
+    }
+
+    .hero__title {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+
+    .hero__image {
+        width: 60%;
+        height: auto;
+    }
+
+    #hero {
+        margin-top: 80px;
+        flex-direction: column;
         padding: 0 var(--space-6);
     }
 
@@ -1164,10 +1423,8 @@ footer small {
         margin-top: var(--space-5);
     }
 
-    #hero {
-        flex-direction: column;
-        gap: var(--space-6);
-        padding: 0 var(--space-6);
+    .section section--home {
+        margin-top: 0;
     }
 
     .hero-buttons {
@@ -1219,10 +1476,6 @@ footer small {
     .projects__list {
         grid-template-columns: 1fr 1fr;
     }
-
-    h1 {
-        font-size: var(--font-4xl);
-    }
 }
 
 /* =========================
@@ -1239,10 +1492,5 @@ footer small {
 
     h1 {
         font-size: var(--font-3xl);
-    }
-
-    .hero__image {
-        width: 240px;
-        height: 240px;
     }
 }

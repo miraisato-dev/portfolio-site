@@ -26,6 +26,7 @@
 
 <body>
     <header id="home">
+
         <nav class="nav">
 
             <div class="nav__primary">
@@ -66,12 +67,32 @@
             </div>
         </nav>
 
-        <!-- ハンバーガー -->
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+
+        <!-- スマホ版の時のみSTART -->
+        <div class="demobox-header">
+            <a href="#home" class="demobox-sitename">Mirai Sato</a>
+            <!-- ↓ハンバーガーメニューここから↓ -->
+            <nav class="nav--mobile">
+                <input id="menu-toggle" type="checkbox" class="nav__toggle">
+                <label for="menu-toggle" class="nav__hamburger nav__hamburger8">
+                    <span class="hamburger-switch-half"></span>
+                </label>
+                <div class="hamburger-menuwrap-right nav__menu--mobile">
+                    <ul class="hamburger-menulist-half nav__list--mobile">
+                        <li><a href="#home">home</a></li>
+                        <li><a href="#about">about</a></li>
+                        <li><a href="#experience">experience</a></li>
+                        <li><a href="#projects">projects</a></li>
+                        <li><a href="#contact">contact</a></li>
+                    </ul>
+                </div>
+                <div class="nav--mobile-cover"></div>
+            </nav>
+            <!-- ↑ハンバーガーメニューここまで↑ -->
         </div>
+        <!-- ↑ハンバーガーメニューここまで↑ -->
+        <!-- スマホ版の時のみEND -->
+
 
         <section id="hero" class="section section--home">
             <div class="hero__image">
@@ -86,7 +107,7 @@
                     Aspiring Full-Stack Engineer focused on Python/Flask and modern web technologies.
                     Building practical solutions for real-world problems.
                 </p>
-                <br><br>
+                <br>
                 <p>
                     Python/Flaskを中心に学習中のフルスタックエンジニア志望。
                     <br>
@@ -367,7 +388,6 @@
 
     <!-- 自作JS -->
     <script src="main.js" defer></script>
-</body>
 </body>
 
 </html>
