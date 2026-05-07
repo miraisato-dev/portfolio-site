@@ -11,36 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-
-
-
-
-
-
-
-    // // Hamburger
-    // const hamburger = document.getElementById("hamburger");
-    // const menu = document.querySelector(".nav__primary ul");
-
-    // hamburger.addEventListener("click", () => {
-    //     menu.classList.toggle("active");
-    //     hamburger.classList.toggle("active");
-    // });
-
-
-
-
-
-
-
-
-
     // Slick START
     $(function () {
         $(".projects__slide").slick({
+            slidesToShow: 1, // 表示するスライド数
+            slidesToScroll: 1, // スクロールするスライド数
+            arrows: true,
             autoplay: true,
             autoplaySpeed: 4000,
+            speed: 500,
             dots: true,
+            infinite: true
         });
     });
     // Slick END
@@ -253,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 1 main内の全要素に fadeanimation をつける
     // ▼ heroと波紋アニメーションとスライドの上の文字を除外
-    document.querySelectorAll("main *:not(.hero):not(.hero *):not(.ripple):not(.ripple *):not(.project-slide__content *)")
+    document.querySelectorAll("main *:not(.hero):not(.hero *):not(.ripple):not(.ripple *):not(.project-slide__content *):not(.projects__view-all a):not(.projects__slider *)")
         .forEach(el => {
             el.classList.add("fadeanimation");
         });
