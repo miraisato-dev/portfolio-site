@@ -38,7 +38,6 @@ https://miraisato-dev.github.io/portfolio-site/
   現在はHTML軸の構成ですが、今後のPython/FlaskやRailsでの成果物増加を見越し、コンポーネントベースのフレームワークへ移行予定。プロジェクト管理の動的化（DB連携）を目指します。
 
 ## 📂 ディレクトリ構成
-'''text
 .
 ├── index.html        # メインのHTMLファイル
 ├── css/
